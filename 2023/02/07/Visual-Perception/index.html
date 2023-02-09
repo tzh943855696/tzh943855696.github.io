@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="视觉感知用户通过视觉感知(Visual Perception)器官获得可视信息，编码并形成认知(Cognition)，在交互分析过程中获取解决问题的方法。人眼是一个具有高度并行处理能力的器官，人类视觉具有迄今为止最高的处理带宽，人类视觉对于以数字，文本形式存在的非形象化信息的直接感知能力远远落后于对于形象化视觉符号的理解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Visual Perception">
+<meta property="og:url" content="http://example.com/2023/02/07/Visual-Perception/index.html">
+<meta property="og:site_name" content="Locke&#39;s Note">
+<meta property="og:description" content="视觉感知用户通过视觉感知(Visual Perception)器官获得可视信息，编码并形成认知(Cognition)，在交互分析过程中获取解决问题的方法。人眼是一个具有高度并行处理能力的器官，人类视觉具有迄今为止最高的处理带宽，人类视觉对于以数字，文本形式存在的非形象化信息的直接感知能力远远落后于对于形象化视觉符号的理解。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://c2.im5i.com/2023/02/09/nRqj8.md.jpeg">
+<meta property="article:published_time" content="2023-02-07T06:43:05.000Z">
+<meta property="article:modified_time" content="2023-02-09T10:11:23.412Z">
+<meta property="article:author" content="Zihan Teng">
+<meta property="article:tag" content="InfoVis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://c2.im5i.com/2023/02/09/nRqj8.md.jpeg">
+
+<link rel="canonical" href="http://example.com/2023/02/07/Visual-Perception/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Visual Perception | Locke's Note</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Locke's Note</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learning Notes</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/07/Visual-Perception/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zihan Teng">
+      <meta itemprop="description" content="InfoVis">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Locke's Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Visual Perception
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-02-07 14:43:05" itemprop="dateCreated datePublished" datetime="2023-02-07T14:43:05+08:00">2023-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-02-09 18:11:23" itemprop="dateModified" datetime="2023-02-09T18:11:23+08:00">2023-02-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="视觉感知"><a href="#视觉感知" class="headerlink" title="视觉感知"></a>视觉感知</h3><p>用户通过视觉感知(Visual Perception)器官获得可视信息，编码并形成认知(Cognition)，在交互分析过程中获取解决问题的方法。人眼是一个具有高度并行处理能力的器官，人类视觉具有迄今为止最高的处理带宽，人类视觉对于以数字，文本形式存在的非形象化信息的直接感知能力远远落后于对于形象化视觉符号的理解。</p>
+<span id="more"></span>
+
+<h4 id="视觉感知处理过程"><a href="#视觉感知处理过程" class="headerlink" title="视觉感知处理过程"></a>视觉感知处理过程</h4><p>感知：客观事物通过感觉器官在人脑中的直接反映<br>认知：对信息获取，编码，储存，提取和使用一系列加工处理过程</p>
+<ul>
+<li>大脑对于视觉信息的记忆速度浩宇对语言的记忆效果与记忆速度</li>
+<li>视觉可以被分为<strong>低阶视觉(物理性质)</strong> 与 <strong>高阶视觉(识别与分类)</strong></li>
+</ul>
+<h4 id="格式塔理论"><a href="#格式塔理论" class="headerlink" title="格式塔理论"></a>格式塔理论</h4><p>观点：感知事物大于眼睛见到的事物。人在观察时，倾向于将视觉感知内容理解为常规的，简单的，相连的，对称的结构。在获取视觉感知时，<strong>会倾向于将事物理解为一个整体而不是组成该事物所有部分的集合</strong></p>
+<ul>
+<li>贴近原则（Proximity）:当视觉元素在空间距离上相距较近时，人们倾向将它们归于一组</li>
+<li>相似原则（Similarity）:人们会自然的根据事物相似性进行感知分组</li>
+<li>连续原则（Continuity）:人们将不连续物体视为连续的整体</li>
+<li>闭合原则（Closure）:物体形状足够表示表征物体本身，人们就容易感知整个物体而忽视未闭合的特征</li>
+<li>共势原则（Common Fate）:一组物体具有沿着相似光滑路径运动或排列模式，人眼将识别为同一类物体</li>
+<li>好图原则（Good Figure）:人眼会将一组物体安简单规则有序的排列方式进行识别</li>
+<li>对成性原则（Symmetry）:人的意识倾向于将物体识别为堆成的形状，将数据按照对称性原则分为偶数个对称部分，对称部分会被识别为相连的形状，增强认知的愉悦度</li>
+<li>经验原则（Past Experience）:某些情况下视觉感知与过去经历有关（图示理论）</li>
+</ul>
+<p>视觉形象首先作为统一的整体被认知，而后才以部分的形式被认知（人先看见一个构图的整体，然后才看见这一构图整体的各个部分）</p>
+<h5 id="相关实验"><a href="#相关实验" class="headerlink" title="相关实验"></a>相关实验</h5><ol>
+<li>变化盲视</li>
+<li>选择注意</li>
+<li>遗忘进程</li>
+<li>认知偏差</li>
+</ol>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>颜色视觉理论: 三色视觉理论与补色过程理论<br>色彩空间：RGB&#x2F;CMYK 后发展HSL</p>
+<h4 id="视觉编码"><a href="#视觉编码" class="headerlink" title="视觉编码"></a>视觉编码</h4><p>视觉假象(Visual Illusion):需要合理的设置上下文环境<br>可视化编码（Visual Encoding）:</p>
+<ul>
+<li>标记（图形元素）：数据属性到可视化元素的映射，代表性质分类</li>
+<li>控制标记视觉特征的视觉通道：数据的值到标记的视觉表现映射，展现定量信息</li>
+</ul>
+<p>常见视觉通道：位置，大小，形状，方向，色调，亮度<br>不同的视觉通道在表达信息的作用和能力存在不同特性<br>视觉通道类型：数据以有序和分类两种形式存在  色调用于表现分类而无序的数据，同一颜色不同亮度表现顺序性<br><strong>视觉通道表现力:</strong> 指的是表达数据的完整性<br>根据表现力和有效性对视觉通道排序<br><strong>定性视觉通道:</strong> 形状，颜色色调，空间位置<br><strong>定量视觉通道:</strong> 长度，面积，体积，斜度 etc<br><strong>分组视觉通道:</strong> 接近性（basic），显示连接，显示包围<br><img src="https://c2.im5i.com/2023/02/09/nRqj8.md.jpeg" alt="nRqj8.md.jpeg">]</p>
+<h4 id="表现力的判断标准"><a href="#表现力的判断标准" class="headerlink" title="表现力的判断标准"></a>表现力的判断标准</h4><p>精确性: </p>
+<ul>
+<li>史蒂文斯幂次法则$S&#x3D;I^n$(S为大脑感知结果，I表示刺激值，n范围从0.5-3.5)</li>
+<li>亮度是次线性信号(0.5)，电流是超线性信号(3.5)，长度是线性信号(1.0)</li>
+</ul>
+<p><strong>可辨识性</strong><br><strong>可分离性:</strong> 视觉通道会两两干扰，圆的大小过小时候会影响人对色彩的感知<br><strong>视觉突出:</strong> 人们依靠前注意力(Preattentive)发现特殊物体小号的时间不受背景对象数量影响，不同视觉对象的视觉突出表现力不同(color&gt;shape)</p>
+<h4 id="颜色-1"><a href="#颜色-1" class="headerlink" title="颜色"></a>颜色</h4><p><strong>亮度:</strong> 亮度适合编码有序的数据，尽量使用少于6个不同的可辨亮度层次。亮度边界效应明显，感知缺乏精确性<br><strong>饱和度:</strong> 饱和度与尺寸直径存在非常强烈相互影响，小尺寸上饱和度识别非常困难，边界效应明显，缺乏精确性<br><strong>色调:</strong> 色调比亮度与饱和度拥有更多可区分层次，色调也与其他视觉通道存在相互影响，<strong>在不连续区域中难以被准确区分</strong><br>配色系统:colorBrewer，Kuler，cartocolors</p>
+<h4 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h4><p>长度是一维的尺寸，面积是二维的尺寸，体积则是三维的尺寸。人们对一维尺寸的判断是线性的，<strong>对多维尺寸的判断随着维度升高而变的越来越不准确</strong></p>
+<h4 id="斜度和角度"><a href="#斜度和角度" class="headerlink" title="斜度和角度"></a>斜度和角度</h4><p>斜度和角度用于编码分类或有序的属性。相邻两个象限中间斜度所指方向呈现中性特征，可以编码数据的发散性(Divergence)</p>
+<h4 id="纹理"><a href="#纹理" class="headerlink" title="纹理"></a>纹理</h4><p>纹理被认为是多种视觉变量的组合，包括形状、颜色与方向。应用纹理可以避免在可视化设计中使用过多色彩（Texture.js）</p>
+<h4 id="视觉多通（Visual-Multiplexing）"><a href="#视觉多通（Visual-Multiplexing）" class="headerlink" title="视觉多通（Visual Multiplexing）"></a>视觉多通（Visual Multiplexing）</h4><p>可正确解码的多可视化信息的堆叠方式，有12类组合方式<br>没看懂，以后看: <em>Visual multiplexing.Computer Graphics Forum</em></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/InfoVis/" rel="tag"># InfoVis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/02/01/Introduction-to-data-visualization/" rel="prev" title="Introduction to Data Visualization">
+      <i class="fa fa-chevron-left"></i> Introduction to Data Visualization
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E6%84%9F%E7%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">视觉感知</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E6%84%9F%E7%9F%A5%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">视觉感知处理过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%A1%94%E7%90%86%E8%AE%BA"><span class="nav-number">1.2.</span> <span class="nav-text">格式塔理论</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">相关实验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2"><span class="nav-number">2.</span> <span class="nav-text">颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E7%BC%96%E7%A0%81"><span class="nav-number">2.1.</span> <span class="nav-text">视觉编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E7%8E%B0%E5%8A%9B%E7%9A%84%E5%88%A4%E6%96%AD%E6%A0%87%E5%87%86"><span class="nav-number">2.2.</span> <span class="nav-text">表现力的判断标准</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2-1"><span class="nav-number">2.3.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BA%E5%AF%B8"><span class="nav-number">2.4.</span> <span class="nav-text">尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%9C%E5%BA%A6%E5%92%8C%E8%A7%92%E5%BA%A6"><span class="nav-number">2.5.</span> <span class="nav-text">斜度和角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%B9%E7%90%86"><span class="nav-number">2.6.</span> <span class="nav-text">纹理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E5%A4%9A%E9%80%9A%EF%BC%88Visual-Multiplexing%EF%BC%89"><span class="nav-number">2.7.</span> <span class="nav-text">视觉多通（Visual Multiplexing）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zihan Teng"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Zihan Teng</p>
+  <div class="site-description" itemprop="description">InfoVis</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/tzh943855696" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tzh943855696" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:22059942g@connect.polyu.hk" title="E-Mail → mailto:22059942g@connect.polyu.hk" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zihan Teng</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
