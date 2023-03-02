@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="InfoVis">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://example.com/tags/index.html">
+  <meta name="description" content="Team formation changes are a common high-level strategy in football and are crucial for gamesresult. Due to the highly spatial and temporal nature of formation changes, it is difficult for professiona">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summary on soccer visual analytics system">
+<meta property="og:url" content="http://example.com/2023/02/22/Soccer-Analytics-System/index.html">
 <meta property="og:site_name" content="Locke&#39;s Note">
-<meta property="og:description" content="InfoVis">
+<meta property="og:description" content="Team formation changes are a common high-level strategy in football and are crucial for gamesresult. Due to the highly spatial and temporal nature of formation changes, it is difficult for professiona">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-02-07T06:40:37.000Z">
-<meta property="article:modified_time" content="2023-02-14T09:39:15.665Z">
+<meta property="article:published_time" content="2023-02-22T08:24:37.000Z">
+<meta property="article:modified_time" content="2023-03-02T02:52:03.690Z">
 <meta property="article:author" content="Zihan Teng">
+<meta property="article:tag" content="Reflections">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/tags/">
+<link rel="canonical" href="http://example.com/2023/02/22/Soccer-Analytics-System/">
 
 
 <script id="page-configurations">
@@ -40,13 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>tags | Locke's Note
-</title>
+  <title>Summary on soccer visual analytics system | Locke's Note</title>
   
 
 
@@ -154,51 +154,91 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="en">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/22/Soccer-Analytics-System/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zihan Teng">
+      <meta itemprop="description" content="InfoVis">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Locke's Note">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Summary on soccer visual analytics system
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-<div class="post-meta">
+              <time title="Created: 2023-02-22 16:24:37" itemprop="dateCreated datePublished" datetime="2023-02-22T16:24:37+08:00">2023-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-02 10:52:03" itemprop="dateModified" datetime="2023-03-02T10:52:03+08:00">2023-03-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Team formation changes are a common high-level strategy in football and are crucial for games<br>result. Due to the highly spatial and temporal nature of formation changes, it is difficult for professional analysts to identify and detect patterns in team formation changes. Existing work has focused on match results and statistics, but has neglected the process of temporal and spatial changes in formations and individual behaviour. These two papers both propose new visual analysis systems (HeatVIS, Forvizor) to help analysts interactively explore the temporal and spatial variation of player and team formations and related contextual information in a comprehensive manner.</p>
+<span id="more"></span>
+<p>HeatVIS uses data directly from tournament officials and detects formations using the K-Means algorithm, while ForVizor proposes a data processing pipeline to capture data from football games and process it systematically. The process of this pipeline is: (1) collecting video (2) propose a semi- automatic interactive tracking method to track player (3) map positions to 2D planes(4) detect formations. Through interviews and surveys with coaches and analysts, the researchers identified the design objectives. Both systems were designed to show the spatial and temporal variation of team formations, with HeatVIS focusing on the spatial and temporal variation of player attributes (speed, location), while ForVizor was more intuitive in showing the spatial variation of team formations and the correspondence between the two team formations. HeatVIS proposes a Player Attribute Heatmap (PAH) based on heat map to show the spatio-temporal variation of players’ position and speed, and PAH is used to show the situation of the game and the tendency of teams to play in the left and right halves of the field by means of different axis ordering. The researchers also design the Tactic Scheme Heatmap (TAS) to show the evolution of the formations. the first representation of the TAS is a qualitative colour map that associates each strategy scheme with a colour. The second representation will have three columns of Defence-Middle-Attack and a colour mapping of the number of people, indicating the formation composition. Forvizor’s formation view provides comprehensive spatio- temporal information on the changes in team formation. The display view presents detailed positional information about the team and individual statistics. In the formation view, a descriptive timeline is first used to mark significant events using glyphs, and a confrontation matrix is used to represent formation pairs. A change in formation can actually be represented as a movement of people in different parts of the team.ForVizor researchers have designed Formation Flow, based on the Sankey diagram, which elaborates on the temporal and spatial changes in the team formation and shows the movement and substitution of players, the position of the football and other key factors. Formation flow not only shows the composition of the formation as well as TAS (HeatVIS), but also focuses more on the process of special change. Both ForVizor and HeatVIS have interfaces to display player information (Rader Chart, Heatmap), but ForVizor allows more dimensions to be viewed and provides an interactive view to reduce the cognitive load. In addition, ForVizor allows analysts to analyse team performance data.In the user evaluation phase, the analysts use the system to assess usability. Most user’s feedbacks were very positive and the user also recommended reduce the amount of information and highlighting typical team formations.<br>[1]V. Machado, R. Leite, F. Moura, S. Cunha, F. Sadlo, “Visual soccer match analysis using spatiotemporal positions of players,” Computers &amp; graphics, vol. 68, pp. 84–95, 2017, (HeatVIS) [2]Y. Wu et al., “ForVizor: Visualizing Spatio-Temporal Team Formations in Soccer,” IEEE transactions on visualization and computer graphics, vol. 25, no. 1, pp. 65–75</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Reflections/" rel="tag"># Reflections</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/02/14/Time-varying-Vis/" rel="prev" title="Time-varying Vis">
+      <i class="fa fa-chevron-left"></i> Time-varying Vis
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              2 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/InfoVis/" style="font-size: 30px; color: #111">InfoVis</a> <a href="/tags/Reflections/" style="font-size: 12px; color: #ccc">Reflections</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
