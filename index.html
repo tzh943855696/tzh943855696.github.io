@@ -158,6 +158,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/25/Leetcode-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zihan Teng">
+      <meta itemprop="description" content="InfoVis">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Locke's Note">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/25/Leetcode-1/" class="post-title-link" itemprop="url">Leetcode 1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-03-25 20:58:44 / Modified: 21:08:04" itemprop="dateCreated datePublished" datetime="2023-03-25T20:58:44+08:00">2023-03-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Sum-of-two-numbers"><a href="#Sum-of-two-numbers" class="headerlink" title="Sum of two numbers"></a>Sum of two numbers</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="keyword">function</span>(<span class="params">nums, target</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, len = nums.<span class="property">length</span>;i &lt; len;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(map.<span class="title function_">has</span>(target - nums[i])) &#123;</span><br><span class="line">            <span class="keyword">return</span> [map.<span class="title function_">get</span>(target - nums[i]), i];</span><br><span class="line">        &#125;</span><br><span class="line">        map.<span class="title function_">set</span>(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过HashMap，在循环的时候进行查找我们将HashMap的Key定位nums[i]，Value定义为i。<br>那么，每次循环到一个数的时候，我们就可以在HashMap中查找是否存在key &#x3D;&#x3D;&#x3D; target - nums[i]，如果存在则可以直接返回对应的两个下标，否则，将当前的值记入到HashMap中。<br>时间复杂度：O(n)<br>空间复杂度：O(n)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/05/Multidimensional-Multivariant-Data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zihan Teng">
+      <meta itemprop="description" content="InfoVis">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Locke's Note">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/05/Multidimensional-Multivariant-Data/" class="post-title-link" itemprop="url">Multidimensional Multivariant Data</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-05 17:28:58" itemprop="dateCreated datePublished" datetime="2023-03-05T17:28:58+08:00">2023-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-25 21:07:51" itemprop="dateModified" datetime="2023-03-25T21:07:51+08:00">2023-03-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="高维多元数据"><a href="#高维多元数据" class="headerlink" title="高维多元数据"></a>高维多元数据</h3><ul>
+<li>高维多元数据是指每个数据对象有两个及以上独立(高维)或相关属性（多元）的数据</li>
+<li>常规二维三维数据可以采用常规可视化方法表示:散点图（Scatter Plot），当超过三维时可可以使用视觉编码（颜色，大小，形状）<br>表示额外属性，但这种方法不适合更高维度数据（视觉编码有限，会降低可视化的可读性）</li>
+</ul>
+<h4 id="三类方法"><a href="#三类方法" class="headerlink" title="三类方法"></a>三类方法</h4><ul>
+<li>空间映射</li>
+<li>图标法</li>
+<li>基于像素可视化方法</li>
+</ul>
+<h4 id="空间映射法"><a href="#空间映射法" class="headerlink" title="空间映射法"></a>空间映射法</h4><h5 id="散点图矩阵"><a href="#散点图矩阵" class="headerlink" title="散点图矩阵"></a>散点图矩阵</h5><p>对于N维数据，采用$N^2$个散点图逐一表示N个属性之间的两两关系，组成$N*N$,位于对角线上的属性可用于揭示数据在特定属性上的分布<br><a target="_blank" rel="noopener" href="https://imgloc.com/i/G17lQ"><img src="https://i.328888.xyz/2023/03/05/G17lQ.md.jpeg" alt="G17lQ.md.jpeg"></a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/22/Soccer-Analytics-System/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -591,14 +725,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
