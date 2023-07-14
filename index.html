@@ -158,6 +158,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/14/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zihan Teng">
+      <meta itemprop="description" content="InfoVis">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Locke's Note">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/14/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">权限管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-07-14 13:30:45 / Modified: 16:15:24" itemprop="dateCreated datePublished" datetime="2023-07-14T13:30:45+08:00">2023-07-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="页面权限管理"><a href="#页面权限管理" class="headerlink" title="页面权限管理"></a>页面权限管理</h3><h4 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h4><p>前端路由信息完全血丝，根据后端返回值动态生成页面菜单。前端在router.js中定义好所有的路由。为了防止用户输入URL访问，需要在跳转时添加路由守卫router.beforeEach，对权限进行判断，不满足权限跳到401，404页面</p>
+<h4 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h4><p>后端返回路由权限名，前端存储完整路由权限表。用户登录后通过Token获取用户role，跟根据用户role算出拥有权限的路由，并通过router.addRoutes动态挂载路由。</p>
+<ul>
+<li>路由分为两种：constantRoutes（静态路由）与asyncRoute（动态路由）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要权限路由</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> asyncRoutes = [</span><br><span class="line"> </span><br><span class="line">  &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/permission&#x27;</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;permissionhome&#x27;</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="attr">meta</span>: &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="attr">icon</span>: <span class="string">&#x27;el-icon-setting&#x27;</span>,</span><br><span class="line"> </span><br><span class="line">      <span class="attr">roles</span>: [<span class="string">&#x27;admin&#x27;</span>,<span class="string">&#x27;superadmin&#x27;</span>] <span class="comment">//表示需要的身份/权限</span></span><br><span class="line"> </span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line">    <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&quot;@/views/permission.vue&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> &#125;,</span><br><span class="line"> </span><br><span class="line"> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/detail&#x27;</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;detail&#x27;</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="attr">meta</span>: &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="attr">icon</span>: <span class="string">&#x27;el-icon-setting&#x27;</span>,</span><br><span class="line"> </span><br><span class="line">      <span class="attr">roles</span>: [<span class="string">&#x27;superadmin&#x27;</span>]</span><br><span class="line"> </span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line">    <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&quot;@/views/detail.vue&quot;</span>)</span><br><span class="line"> </span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure></li>
+<li>使用addRoutes方法动态添加路由 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// main.js</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> whiteList = [<span class="string">&#x27;/login&#x27;</span>] <span class="comment">// 免登陆页面</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span> (store.<span class="property">getters</span>.<span class="property">token</span>) &#123; <span class="comment">// 判断是否有token</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (to.<span class="property">path</span> === <span class="string">&#x27;/login&#x27;</span>) &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="title function_">next</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span> &#125;);</span><br><span class="line"> </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="keyword">if</span> (store.<span class="property">getters</span>.<span class="property">roles</span>.<span class="property">length</span> === <span class="number">0</span>) &#123; <span class="comment">// 判断用户是否游user_info信息</span></span><br><span class="line"> </span><br><span class="line">        store.<span class="title function_">dispatch</span>(<span class="string">&#x27;GetInfo&#x27;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123; <span class="comment">// 获取info</span></span><br><span class="line"> </span><br><span class="line">          <span class="keyword">const</span> roles = res.<span class="property">data</span>.<span class="property">role</span>;</span><br><span class="line"> </span><br><span class="line">          store.<span class="title function_">dispatch</span>(<span class="string">&#x27;GenerateRoutes&#x27;</span>, &#123; roles &#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123; <span class="comment">// 生成可访问的路由表</span></span><br><span class="line"> </span><br><span class="line">            router.<span class="title function_">addRoutes</span>(store.<span class="property">getters</span>.<span class="property">addRouters</span>) <span class="comment">// 动态添加可访问路由表</span></span><br><span class="line"> </span><br><span class="line">           <span class="title function_">next</span>(&#123; ...to, <span class="attr">replace</span>: <span class="literal">true</span> &#125;) <span class="comment">// hack方法 确保addRoutes已完成</span></span><br><span class="line"> </span><br><span class="line">        &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line"> </span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line"> </span><br><span class="line">        &#125;);</span><br><span class="line"> </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"> </span><br><span class="line">        <span class="title function_">next</span>() <span class="comment">//当有用户权限的时候，说明所有可访问路由已生成 如访问没权限的全面会自动进入404页面</span></span><br><span class="line"> </span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (whiteList.<span class="title function_">indexOf</span>(to.<span class="property">path</span>) !== -<span class="number">1</span>) &#123; <span class="comment">// 在免登录白名单，直接进入</span></span><br><span class="line"> </span><br><span class="line">      <span class="title function_">next</span>();</span><br><span class="line"> </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"> </span><br><span class="line">      <span class="title function_">next</span>(<span class="string">&#x27;/login&#x27;</span>); <span class="comment">// 否则全部重定向到登录页</span></span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="方案三："><a href="#方案三：" class="headerlink" title="方案三："></a>方案三：</h4><p>后端返回完整异步路由表</p>
+<h3 id="按钮权限管理"><a href="#按钮权限管理" class="headerlink" title="按钮权限管理"></a>按钮权限管理</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>在获取到用户的role后，用v-if判断或者封装自定义指令v-auth</p>
+<pre><code class="javascript">const auth = Vue.directive(&#39;auth&#39;, &#123;
+    inserted: function(el, binding, vnode) &#123;
+        const actionName = binding.value || &#39;&#39;;
+        const permissions = store.getters[&#39;user/permissions&#39;];
+        const [requiredPermission, requiredAction] = actionName.split(.)
+        if(
+            !(
+                permissions[requiredPermission] &amp;&amp;
+                requiredAction &amp;&amp;
+                permissions[requiredPermission].includes(requiredAction)
+            ))
+            &#123;
+                (el.parentNode &amp;&amp; el.parentNode.removeChild(el)) || (el.style.display = &#39;nones&#39;)
+            &#125;
+    &#125;
+&#125;)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/07/URL-createObjectURL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -770,94 +853,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/01/Introduction-to-data-visualization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Zihan Teng">
-      <meta itemprop="description" content="InfoVis">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Locke's Note">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/02/01/Introduction-to-data-visualization/" class="post-title-link" itemprop="url">Introduction to Data Visualization</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-02-01 14:29:15" itemprop="dateCreated datePublished" datetime="2023-02-01T14:29:15+08:00">2023-02-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-02-07 14:30:57" itemprop="dateModified" datetime="2023-02-07T14:30:57+08:00">2023-02-07</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="可视化分类"><a href="#可视化分类" class="headerlink" title="可视化分类"></a>可视化分类</h3><ul>
-<li>Scientific Visualization<ul>
-<li>标量场可视化<ul>
-<li>将数值映射为颜色或透明度</li>
-<li>等值线法-抽取链接<em>f(x,y,z)&#x3D;c</em>的点集连接成线(二维)或面(三维)</li>
-<li>直接体绘制法</li>
-</ul>
-</li>
-<li>向量场(流场)可视化<ul>
-<li>粒子对流法</li>
-<li>将向量场转换为一帧或多帧纹理图像</li>
-<li>图标编码耽搁或简化后的向量信息</li>
-</ul>
-</li>
-<li>张量场可视化
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/02/01/Introduction-to-data-visualization/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -924,14 +924,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
