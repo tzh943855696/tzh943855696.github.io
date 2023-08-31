@@ -158,6 +158,268 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/30/vuex%E6%A8%A1%E5%9D%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Zihan Teng">
+      <meta itemprop="description" content="InfoVis">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Locke's Note">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/30/vuex%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">vuex模块化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-08-30 18:45:01" itemprop="dateCreated datePublished" datetime="2023-08-30T18:45:01+08:00">2023-08-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-08-31 13:43:48" itemprop="dateModified" datetime="2023-08-31T13:43:48+08:00">2023-08-31</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Vuex-原理"><a href="#Vuex-原理" class="headerlink" title="Vuex 原理"></a>Vuex 原理</h4><pre><code class="javascript">class Store &#123;
+  constructor(options) &#123;
+    const state = options.state;
+    this._vm = new Vue(&#123;
+      data: &#123;
+        state
+      &#125;
+    &#125;);
+
+    // 处理getter
+    this.getters = &#123;&#125;;
+    // forEachValue(options.getters || &#123;&#125;, (fn, key) =&gt; &#123;
+    //   Object.defineProperty(this.getters, key, &#123;
+    //     get: () =&gt; &#123; console.log(&#39;我变了&#39;); return fn(this.state);&#125;
+    //   &#125;);
+    // &#125;);
+
+    // 处理mutation
+    this.mutations = &#123;&#125;;
+    // forEachValue(options.mutations || &#123;&#125;, (fn, key) =&gt; &#123;
+    //   this.mutations[key] = (payload) =&gt; &#123;
+    //     fn(this.state, payload)
+    //   &#125;
+    // &#125;)
+
+    // 处理actions
+    // 最后会做一个监控 看看是不是异步方法都在action更新 不是在mutation执行的
+    this.actions = &#123;&#125;;
+    // forEachValue(options.actions || &#123;&#125;, (fn, key) =&gt; &#123;
+    //   this.actions[key] = (payload) =&gt; &#123;
+    //     fn(this, payload)
+    //   &#125;
+    // &#125;)
+    // ------------------------------------------------------------------
+
+    // 想成为这种格式
+    // let root = &#123;
+    //   _row: rootModule,
+    //   state: rootModule.state,
+    //   _children: &#123;
+    //     a: &#123;
+    //       _row: aModule,
+    //       state: aModule.state,
+    //       _children: &#123;&#125;,
+    //     &#125;,
+    //     b: &#123;
+    //       _row: bModule,
+    //       state: bModule.state,
+    //       _children: &#123;
+    //         c: &#123;
+    //           _row: cModule,
+    //           state: cModule.state,
+    //           _children: &#123;&#125;
+    //         &#125;
+    //       &#125;
+    //     &#125;
+    //   &#125;
+    // &#125;
+
+    // 格式化
+    this.modules = new ModuleCollecton(options)
+    console.log(this.modules);
+
+    // 递归的安装模块 比如action mutation getters
+    // 对该vue实例state 进行安装
+    // 把上面的变为
+    // 数据拍平
+    // this.getters = &#123;
+    //   a: (stateA) =&gt; &#123;&#125;,
+    //   b: (stateB) =&gt; &#123;&#125;,
+    //   c: (stateC) =&gt; &#123;&#125;,
+    // &#125;;
+    // 数据拍平
+    // this.mutations = &#123;
+    //   a: [(stateA) =&gt; &#123;&#125;, (stateAa) =&gt; &#123;&#125;],
+    //   b: [(stateB) =&gt; &#123;&#125;, (stateBa) =&gt; &#123;&#125;],
+    //   c: [(stateC) =&gt; &#123;&#125;, (stateCc) =&gt; &#123;&#125;],
+    // &#125;;
+    // 形成属性结构 注意这里必须使用$set方式 否则无法响应数据
+    // state = &#123;
+    //   a: &#123;
+    //     age: &#39;123&#39;,
+    //     b: &#123;
+    //       age: &#39;345&#39;
+    //     &#125;
+    //   &#125;
+    // &#125;
+    installModule(this, this.state, [], this.modules.root)
+  &#125;
+  // 处理state
+  get state() &#123;
+    return this._vm.state;
+  &#125;
+  // 处理commit
+  commit = (mutationName, payload) =&gt; &#123; // this指向
+    this.mutations[mutationName].forEach(fn =&gt; &#123;
+      fn(payload)
+    &#125;);
+  &#125;
+  // 处理dispatch
+  dispatch = (actionName, payload) =&gt; &#123;
+    this.actions[actionName].forEach(fn =&gt; &#123;
+      fn(payload)
+    &#125;)
+  &#125;
+  // 动态注册
+  registerModule = (moduleName, module) =&gt; &#123;
+    if (!Array.isArray(moduleName)) &#123;
+      moduleName = [moduleName]
+    &#125;
+    this.modules.register(moduleName, module) // 只进行了数据格式化
+    console.log(this.modules);
+    installModule(this, this.state, moduleName, this.modules.root)
+  &#125;
+&#125;
+//模块收集
+class ModuleCollection &#123;
+    constructor(options) &#123;
+        //注册模块
+        this.register([],options)
+    &#125;
+    register(path, rootModule) &#123;
+        let rawModule = &#123;
+            _raw: rootModule,
+            _children: &#123;&#125;,
+            state: rootModule.state
+        &#125;
+        //判断根节点有没有，如果没有则绑定根节点
+        if(!this.root) &#123;
+            this.root = rawModule
+        &#125; else &#123;
+            let parentModule = path.slice(0,-1).reduce((root,current) =&gt; &#123;
+                return root._children[current]
+            &#125;,this.root)
+        &#125;
+        if(rootModule.modules) &#123;
+            forEach(rootModule,(moduleName,module) =&gt; &#123;
+                //将子模块进行注册[a],a模块的定义
+                this.register(path.concat(moduleName),module)
+
+            &#125;)
+        &#125;
+    &#125;
+&#125;
+
+//安装模块
+function installModule(store, rootState, path, rowModule) &#123; // _row, _children, state
+  let getters = rowModule._row.getters
+  if(getters) &#123;
+    // installmodule第二次会重复 但是这个方法不可以
+    forEachValue(getters, (val, getterName) =&gt; &#123;
+      if (!getters[getterName]) &#123;
+        Object.defineProperty(store.getters, getterName, &#123;
+          get: () =&gt; &#123;
+            return val(rowModule.state) // 模块中的状态
+          &#125;
+        &#125;)
+      &#125;
+    &#125;)
+  &#125;
+
+  let mutations = rowModule._row.mutations
+  if(mutations) &#123;
+    forEachValue(mutations, (val, mutationName) =&gt; &#123;
+      let arr = store.mutations[mutationName] || (store.mutations[mutationName] = [])
+      arr.push((payload) =&gt; &#123;
+        val(rowModule.state, payload)
+      &#125;)
+    &#125;)
+  &#125;
+
+  let actions = rowModule._row.actions
+  if(actions) &#123;
+    forEachValue(actions, (val, actionName) =&gt; &#123;
+      let arr = store.actions[actionName] || (store.actions[actionName] = [])
+      arr.push((payload) =&gt; &#123;
+        val(store, payload)
+      &#125;)
+    &#125;)
+  &#125;
+
+  let state = rowModule._row.state
+  if (state) &#123;
+    if(path.length &gt; 0) &#123; // 有子模块
+      // Vue的响应式原理 不能增加不存在的属性
+      let parentState = path.slice(0, -1).reduce((pre, cur) =&gt; &#123;
+        return pre[cur]
+      &#125;, rootState)
+      
+      Vue.set(parentState, path[path.length - 1], rowModule.state)
+    &#125;
+  &#125;
+  //递归安装子节点
+  forEachValue(rowModule._children, (module, moduleName) =&gt; &#123;
+    installModule(store, rootState, path.concat(moduleName), module)
+  &#125;)
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/14/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,10 +443,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-08-14 14:46:16 / Modified: 15:06:10" itemprop="dateCreated datePublished" datetime="2023-08-14T14:46:16+08:00">2023-08-14</time>
+              <time title="Created: 2023-08-14 14:46:16" itemprop="dateCreated datePublished" datetime="2023-08-14T14:46:16+08:00">2023-08-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-08-30 18:44:42" itemprop="dateModified" datetime="2023-08-30T18:44:42+08:00">2023-08-30</time>
+              </span>
 
           
 
@@ -768,64 +1036,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/14/Time-varying-Vis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Zihan Teng">
-      <meta itemprop="description" content="InfoVis">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Locke's Note">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/02/14/Time-varying-Vis/" class="post-title-link" itemprop="url">Time-varying Vis</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-02-14 17:19:48 / Modified: 17:21:38" itemprop="dateCreated datePublished" datetime="2023-02-14T17:19:48+08:00">2023-02-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="时变数据"><a href="#时变数据" class="headerlink" title="时变数据"></a>时变数据</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -897,7 +1107,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

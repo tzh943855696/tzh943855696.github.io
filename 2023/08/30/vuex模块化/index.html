@@ -20,20 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="可视化分类 Scientific Visualization 标量场可视化 将数值映射为颜色或透明度 等值线法-抽取链接f(x,y,z)&#x3D;c的点集连接成线(二维)或面(三维) 直接体绘制法   向量场(流场)可视化 粒子对流法 将向量场转换为一帧或多帧纹理图像 图标编码耽搁或简化后的向量信息   张量场可视化">
+  <meta name="description" content="Vuex 原理class Store &amp;#123;   constructor(options) &amp;#123;     const state &#x3D; options.state;     this._vm &#x3D; new Vue(&amp;#123;       data: &amp;#123;         state       &amp;#125;     &amp;#125;);      &#x2F;&#x2F; 处理getter     t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Data Visualization">
-<meta property="og:url" content="http://example.com/2023/02/01/Introduction-to-data-visualization/index.html">
+<meta property="og:title" content="vuex模块化">
+<meta property="og:url" content="http://example.com/2023/08/30/vuex%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="Locke&#39;s Note">
-<meta property="og:description" content="可视化分类 Scientific Visualization 标量场可视化 将数值映射为颜色或透明度 等值线法-抽取链接f(x,y,z)&#x3D;c的点集连接成线(二维)或面(三维) 直接体绘制法   向量场(流场)可视化 粒子对流法 将向量场转换为一帧或多帧纹理图像 图标编码耽搁或简化后的向量信息   张量场可视化">
+<meta property="og:description" content="Vuex 原理class Store &amp;#123;   constructor(options) &amp;#123;     const state &#x3D; options.state;     this._vm &#x3D; new Vue(&amp;#123;       data: &amp;#123;         state       &amp;#125;     &amp;#125;);      &#x2F;&#x2F; 处理getter     t">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-02-01T06:29:15.000Z">
-<meta property="article:modified_time" content="2023-02-07T06:30:57.446Z">
+<meta property="article:published_time" content="2023-08-30T10:45:01.000Z">
+<meta property="article:modified_time" content="2023-08-31T05:43:48.220Z">
 <meta property="article:author" content="Zihan Teng">
-<meta property="article:tag" content="InfoVis">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/02/01/Introduction-to-data-visualization/">
+<link rel="canonical" href="http://example.com/2023/08/30/vuex%E6%A8%A1%E5%9D%97%E5%8C%96/">
 
 
 <script id="page-configurations">
@@ -46,7 +45,7 @@
   };
 </script>
 
-  <title>Introduction to Data Visualization | Locke's Note</title>
+  <title>vuex模块化 | Locke's Note</title>
   
 
 
@@ -162,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/01/Introduction-to-data-visualization/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/30/vuex%E6%A8%A1%E5%9D%97%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -175,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Introduction to Data Visualization
+          vuex模块化
         </h1>
 
         <div class="post-meta">
@@ -185,14 +184,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2023-02-01 14:29:15" itemprop="dateCreated datePublished" datetime="2023-02-01T14:29:15+08:00">2023-02-01</time>
+              <time title="Created: 2023-08-30 18:45:01" itemprop="dateCreated datePublished" datetime="2023-08-30T18:45:01+08:00">2023-08-30</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-02-07 14:30:57" itemprop="dateModified" datetime="2023-02-07T14:30:57+08:00">2023-02-07</time>
+                <time title="Modified: 2023-08-31 13:43:48" itemprop="dateModified" datetime="2023-08-31T13:43:48+08:00">2023-08-31</time>
               </span>
 
           
@@ -206,51 +205,204 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="可视化分类"><a href="#可视化分类" class="headerlink" title="可视化分类"></a>可视化分类</h3><ul>
-<li>Scientific Visualization<ul>
-<li>标量场可视化<ul>
-<li>将数值映射为颜色或透明度</li>
-<li>等值线法-抽取链接<em>f(x,y,z)&#x3D;c</em>的点集连接成线(二维)或面(三维)</li>
-<li>直接体绘制法</li>
-</ul>
-</li>
-<li>向量场(流场)可视化<ul>
-<li>粒子对流法</li>
-<li>将向量场转换为一帧或多帧纹理图像</li>
-<li>图标编码耽搁或简化后的向量信息</li>
-</ul>
-</li>
-<li>张量场可视化<span id="more"></span></li>
-</ul>
-</li>
-<li>Information Visualization<br>处理抽象的，非结构化数据集合(Text,Diagram,Structure,Map)<ul>
-<li>时空数据可视化<ul>
-<li>地理信息：合理选择布局可视化元素</li>
-<li>时变数据：线性与周期性特征</li>
-</ul>
-</li>
-<li>层次与网络结构可视化<ul>
-<li>层次与图数据可视化：点线图（合理有效布局节点）</li>
-</ul>
-</li>
-<li>文本和跨媒体数据可视化<ul>
-<li>从非结构化文本数据中提取结构化信息并可视化</li>
-</ul>
-</li>
-<li>多变量数据可视化<ul>
-<li>将数据降维到低维空间并通过相互冠霖的多视图表现</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Visual Analytics<ul>
-<li>以可视交互界面为基础的分析推理科学</li>
-<li>当前数据分析方法大多基于先验模型</li>
-<li>以视觉感知为通道，通过可视交互界面，融合人脑智能与机器智能</li>
-</ul>
-</li>
-</ul>
-<p>在分析可视化系统时，设计者需要考虑三个不同方面的约束：计算能力，感知和认知能力以及显示能力</p>
+        <h4 id="Vuex-原理"><a href="#Vuex-原理" class="headerlink" title="Vuex 原理"></a>Vuex 原理</h4><pre><code class="javascript">class Store &#123;
+  constructor(options) &#123;
+    const state = options.state;
+    this._vm = new Vue(&#123;
+      data: &#123;
+        state
+      &#125;
+    &#125;);
+
+    // 处理getter
+    this.getters = &#123;&#125;;
+    // forEachValue(options.getters || &#123;&#125;, (fn, key) =&gt; &#123;
+    //   Object.defineProperty(this.getters, key, &#123;
+    //     get: () =&gt; &#123; console.log(&#39;我变了&#39;); return fn(this.state);&#125;
+    //   &#125;);
+    // &#125;);
+
+    // 处理mutation
+    this.mutations = &#123;&#125;;
+    // forEachValue(options.mutations || &#123;&#125;, (fn, key) =&gt; &#123;
+    //   this.mutations[key] = (payload) =&gt; &#123;
+    //     fn(this.state, payload)
+    //   &#125;
+    // &#125;)
+
+    // 处理actions
+    // 最后会做一个监控 看看是不是异步方法都在action更新 不是在mutation执行的
+    this.actions = &#123;&#125;;
+    // forEachValue(options.actions || &#123;&#125;, (fn, key) =&gt; &#123;
+    //   this.actions[key] = (payload) =&gt; &#123;
+    //     fn(this, payload)
+    //   &#125;
+    // &#125;)
+    // ------------------------------------------------------------------
+
+    // 想成为这种格式
+    // let root = &#123;
+    //   _row: rootModule,
+    //   state: rootModule.state,
+    //   _children: &#123;
+    //     a: &#123;
+    //       _row: aModule,
+    //       state: aModule.state,
+    //       _children: &#123;&#125;,
+    //     &#125;,
+    //     b: &#123;
+    //       _row: bModule,
+    //       state: bModule.state,
+    //       _children: &#123;
+    //         c: &#123;
+    //           _row: cModule,
+    //           state: cModule.state,
+    //           _children: &#123;&#125;
+    //         &#125;
+    //       &#125;
+    //     &#125;
+    //   &#125;
+    // &#125;
+
+    // 格式化
+    this.modules = new ModuleCollecton(options)
+    console.log(this.modules);
+
+    // 递归的安装模块 比如action mutation getters
+    // 对该vue实例state 进行安装
+    // 把上面的变为
+    // 数据拍平
+    // this.getters = &#123;
+    //   a: (stateA) =&gt; &#123;&#125;,
+    //   b: (stateB) =&gt; &#123;&#125;,
+    //   c: (stateC) =&gt; &#123;&#125;,
+    // &#125;;
+    // 数据拍平
+    // this.mutations = &#123;
+    //   a: [(stateA) =&gt; &#123;&#125;, (stateAa) =&gt; &#123;&#125;],
+    //   b: [(stateB) =&gt; &#123;&#125;, (stateBa) =&gt; &#123;&#125;],
+    //   c: [(stateC) =&gt; &#123;&#125;, (stateCc) =&gt; &#123;&#125;],
+    // &#125;;
+    // 形成属性结构 注意这里必须使用$set方式 否则无法响应数据
+    // state = &#123;
+    //   a: &#123;
+    //     age: &#39;123&#39;,
+    //     b: &#123;
+    //       age: &#39;345&#39;
+    //     &#125;
+    //   &#125;
+    // &#125;
+    installModule(this, this.state, [], this.modules.root)
+  &#125;
+  // 处理state
+  get state() &#123;
+    return this._vm.state;
+  &#125;
+  // 处理commit
+  commit = (mutationName, payload) =&gt; &#123; // this指向
+    this.mutations[mutationName].forEach(fn =&gt; &#123;
+      fn(payload)
+    &#125;);
+  &#125;
+  // 处理dispatch
+  dispatch = (actionName, payload) =&gt; &#123;
+    this.actions[actionName].forEach(fn =&gt; &#123;
+      fn(payload)
+    &#125;)
+  &#125;
+  // 动态注册
+  registerModule = (moduleName, module) =&gt; &#123;
+    if (!Array.isArray(moduleName)) &#123;
+      moduleName = [moduleName]
+    &#125;
+    this.modules.register(moduleName, module) // 只进行了数据格式化
+    console.log(this.modules);
+    installModule(this, this.state, moduleName, this.modules.root)
+  &#125;
+&#125;
+//模块收集
+class ModuleCollection &#123;
+    constructor(options) &#123;
+        //注册模块
+        this.register([],options)
+    &#125;
+    register(path, rootModule) &#123;
+        let rawModule = &#123;
+            _raw: rootModule,
+            _children: &#123;&#125;,
+            state: rootModule.state
+        &#125;
+        //判断根节点有没有，如果没有则绑定根节点
+        if(!this.root) &#123;
+            this.root = rawModule
+        &#125; else &#123;
+            let parentModule = path.slice(0,-1).reduce((root,current) =&gt; &#123;
+                return root._children[current]
+            &#125;,this.root)
+        &#125;
+        if(rootModule.modules) &#123;
+            forEach(rootModule,(moduleName,module) =&gt; &#123;
+                //将子模块进行注册[a],a模块的定义
+                this.register(path.concat(moduleName),module)
+
+            &#125;)
+        &#125;
+    &#125;
+&#125;
+
+//安装模块
+function installModule(store, rootState, path, rowModule) &#123; // _row, _children, state
+  let getters = rowModule._row.getters
+  if(getters) &#123;
+    // installmodule第二次会重复 但是这个方法不可以
+    forEachValue(getters, (val, getterName) =&gt; &#123;
+      if (!getters[getterName]) &#123;
+        Object.defineProperty(store.getters, getterName, &#123;
+          get: () =&gt; &#123;
+            return val(rowModule.state) // 模块中的状态
+          &#125;
+        &#125;)
+      &#125;
+    &#125;)
+  &#125;
+
+  let mutations = rowModule._row.mutations
+  if(mutations) &#123;
+    forEachValue(mutations, (val, mutationName) =&gt; &#123;
+      let arr = store.mutations[mutationName] || (store.mutations[mutationName] = [])
+      arr.push((payload) =&gt; &#123;
+        val(rowModule.state, payload)
+      &#125;)
+    &#125;)
+  &#125;
+
+  let actions = rowModule._row.actions
+  if(actions) &#123;
+    forEachValue(actions, (val, actionName) =&gt; &#123;
+      let arr = store.actions[actionName] || (store.actions[actionName] = [])
+      arr.push((payload) =&gt; &#123;
+        val(store, payload)
+      &#125;)
+    &#125;)
+  &#125;
+
+  let state = rowModule._row.state
+  if (state) &#123;
+    if(path.length &gt; 0) &#123; // 有子模块
+      // Vue的响应式原理 不能增加不存在的属性
+      let parentState = path.slice(0, -1).reduce((pre, cur) =&gt; &#123;
+        return pre[cur]
+      &#125;, rootState)
+      
+      Vue.set(parentState, path[path.length - 1], rowModule.state)
+    &#125;
+  &#125;
+  //递归安装子节点
+  forEachValue(rowModule._children, (module, moduleName) =&gt; &#123;
+    installModule(store, rootState, path.concat(moduleName), module)
+  &#125;)
+&#125;
+</code></pre>
 
     </div>
 
@@ -259,20 +411,17 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/InfoVis/" rel="tag"># InfoVis</a>
-          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2023/02/07/Visual-Perception/" rel="next" title="Visual Perception">
-      Visual Perception <i class="fa fa-chevron-right"></i>
+    <a href="/2023/08/14/%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/" rel="prev" title="三栏布局">
+      <i class="fa fa-chevron-left"></i> 三栏布局
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -331,7 +480,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">可视化分类</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex-%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Vuex 原理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
